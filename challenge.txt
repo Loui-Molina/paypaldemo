@@ -1,0 +1,54 @@
+Build a minimal fullstack application (backend + frontend) that allows users to create and list tasks. The goal is not just to make it work, but to demonstrate clean, modular, and production-ready code — within time constraints.
+
+Time Limit
+25 minutes (max). You will build both the backend and the frontend, using in-memory data only (no database needed).
+
+Requirements
+Backend (Spring Boot - Java)
+Create a REST API with the following endpoints:
+
+- POST /api/tasks: Creates a new task.
+- GET /api/tasks: Returns the list of all tasks.
+
+Each task must have the following fields:
+
+-  id: auto-generated
+- title: string (required)
+- completed: boolean (default: false)
+
+
+
+Production-readiness expectations:
+
+Validate that title is not null or blank
+- Return HTTP 400 with a proper error message if validation fails
+- Use a simple layered structure (controller, model, service)
+- In-memory storage (no database) using a thread-safe list
+
+
+
+
+Frontend (React - JavaScript)
+Create a simple React component that:
+
+- Displays a form to create a new task (input + button)
+
+- Lists all tasks fetched from the backend
+
+- Shows basic error and loading states
+
+
+
+Production-readiness expectations:
+
+- Prevents submitting empty titles
+
+- Disables the submit button while a request is in progress
+
+. Handles and displays errors from the backend
+
+- Uses useEffect and useState (no Redux or routing needed)
+
+Bonus (Optional)
+If you had more time, what would you improve to make this production-ready?
+(You may answer verbally or in comments.)
