@@ -11,11 +11,11 @@ export default function Home() {
     const fetchTasks = async () => {
         const res = await fetch('/api/tasks')
         const json: Task[] = await res.json()
-        return json;
+        setTasks(json);
     }
 
     useEffect(() => {
-        fetchTasks().then(r => setTasks(r))
+        fetchTasks()
     }, [])
 
     const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
