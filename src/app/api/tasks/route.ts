@@ -11,8 +11,8 @@ export async function GET() {
 export async function POST(resquest: Request) {
     const body: Task = await resquest.json();
 
-    if (!body || !body.title.trim() || body.completed == undefined)
-        return NextResponse.json({error: 'missing required fields'}, {status: 400})
+    if (!body || !body.title.trim())
+        return NextResponse.json({error: 'missing title'}, {status: 400})
 
     const newTask = new Task(Date.now(), body.title, body.completed)
 

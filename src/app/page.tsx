@@ -1,5 +1,5 @@
 'use client'
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Task} from "@/types";
 
 export default function Home() {
@@ -11,11 +11,11 @@ export default function Home() {
     const fetchTasks = async () => {
         const res = await fetch('/api/tasks')
         const json: Task[] = await res.json()
-        setTasks(json);
+        return json;
     }
 
     useEffect(() => {
-        fetchTasks()
+        fetchTasks().then(r => setTasks(r))
     }, [])
 
     const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
